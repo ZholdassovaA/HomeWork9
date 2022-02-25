@@ -20,7 +20,7 @@ public class RegistrationFormTest extends TestBase {
                 dayOfBirth = "03",
                 monthOfBirth = "June",
                 yearOfBirth = "1997",
-                subject = "Math",
+                subject = "Chemistry",
                 hobby1 = "Music",
                 picture = "girl.png",
                 currentAddress = faker.address().fullAddress(),
