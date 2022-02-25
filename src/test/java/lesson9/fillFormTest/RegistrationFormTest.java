@@ -49,7 +49,7 @@ public class RegistrationFormTest extends TestBase {
                     $(".react-datepicker__day--0" + dayOfBirth).click();
                 });
                 step("Set subject", () -> {
-                    $("#subjectsInput").$(byText(subject)).click();
+                    $("#subjectInput").$(byText(subject)).click();
 
                 });
                 step("Set hobbies", () -> {
