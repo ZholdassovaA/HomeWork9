@@ -13,7 +13,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import static java.lang.String.format;
 
 public class TestBase {
-    static void setup() {
+    @BeforeAll
+    static void beforeAll() {
+        CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
+        String login = credentials.login();
+        String password = credentials.password();
+        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -22,7 +28,8 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
     }
 
